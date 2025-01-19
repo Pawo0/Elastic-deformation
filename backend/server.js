@@ -1,6 +1,6 @@
 const express = require('express');
 const cors = require('cors');
-const { calculateSolution, kalkulator} = require('./calculator');
+const {  calc} = require('./calculator');
 
 const app = express();
 const PORT = 3001;
@@ -23,7 +23,7 @@ app.post('/solve', (req, res) => {
     if (N < 2) {
         return res.status(400).json({ error: 'Liczba elementów skończonych musi być >= 2' });
     }
-    const solution = kalkulator.rozwiaz(N);
+    const solution = calc.solve(N);
     // console.log(solution);
     res.json(solution);
 });
